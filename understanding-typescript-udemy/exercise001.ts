@@ -1,0 +1,21 @@
+// create new type so we can reuse
+type BankAccount = {money: number, deposit: (val: number) => void};
+
+// object
+let bankAccount: BankAccount = {
+    money: 2000,
+    deposit(value: number): void {
+        this.money += value;
+    }
+};
+
+// object
+let myself: {name: string, bankAccount: BankAccount, hobbies: string[]} = {
+    name: "Max",
+    bankAccount: bankAccount,
+    hobbies: ["Sports", "Cooking"]
+};
+
+myself.bankAccount.deposit(3000);
+
+console.log(myself);
